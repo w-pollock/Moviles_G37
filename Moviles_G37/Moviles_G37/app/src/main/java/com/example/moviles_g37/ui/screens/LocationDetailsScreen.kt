@@ -23,7 +23,6 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -33,7 +32,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.moviles_g37.R
-import com.example.moviles_g37.analytics.AppAnalytics
 import com.example.moviles_g37.ui.components.SenecaHeader
 import com.example.moviles_g37.ui.theme.Graphite
 import com.example.moviles_g37.ui.theme.Onyx
@@ -41,25 +39,14 @@ import com.example.moviles_g37.ui.theme.SenecaTextPrimary
 import com.example.moviles_g37.ui.theme.SenecaTextSecondary
 import com.example.moviles_g37.ui.theme.SenecaYellow
 import com.example.moviles_g37.ui.theme.White
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 
 @Composable
 fun LocationDetailsScreen(
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+    locationDetailsViewModel: LocationDetailsViewModel = viewModel()
 ) {
-    LaunchedEffect(Unit) {
-        AppAnalytics.track(
-            event = "screen_view",
-            params = mapOf("screen_name" to "location_details")
-        )
-        AppAnalytics.track(
-            event = "place_viewed",
-            params = mapOf(
-                "source_screen" to "location_details",
-                "place_name" to "ML-603"
-            )
-        )
-    }
 
     Column(
         modifier = Modifier
