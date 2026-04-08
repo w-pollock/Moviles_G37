@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
-val UNIANDES_LAT_LNG = LatLng(67.676, -67.67676)
+val UNIANDES_LAT_LNG = LatLng(4.6016, -74.0657)
 
 data class MapMarker(
     val id: String,
@@ -37,10 +37,10 @@ data class MapUiState(
 
 
 private fun defaultMarkers() = listOf(
-    MapMarker("ml-603", LatLng(4.456, 3.45667), "ML-603", "Mario Laserna - Piso 6"),
-    MapMarker("biblioteca", LatLng(1.235, 4.56467), "Biblioteca ML", "Study & Research Place"),
-    MapMarker("cafeteria", LatLng(5.45456, 10.9854), "Cafetería O", "Eating & Social Place"),
-    MapMarker("caneca", LatLng(12.5465, 354.23134), "Centro Deportivo", "Sports & Recreation")
+    MapMarker("ml-603", LatLng(4.603087402890593, -74.06511143552686), "ML-603", "Mario Laserna - Piso 6"),
+    MapMarker("biblioteca", LatLng(4.602924036713935, -74.06475155986855), "Biblioteca ML", "Study & Research Place"),
+    MapMarker("cafeteria", LatLng(4.600875419712299, -74.06521021759305), "Cafetería O", "Eating & Social Place"),
+    MapMarker("caneca", LatLng(4.600761153404857, -74.0636612562168), "Centro Deportivo", "Sports & Recreation")
 )
 
 class MapViewModel(application: Application): AndroidViewModel(application){

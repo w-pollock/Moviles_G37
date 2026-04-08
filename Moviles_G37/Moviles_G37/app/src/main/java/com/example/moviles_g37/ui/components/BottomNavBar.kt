@@ -1,6 +1,7 @@
 package com.example.moviles_g37.ui.components
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.BarChart
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Map
 import androidx.compose.material.icons.outlined.Search
@@ -26,21 +27,20 @@ fun BottomNavBar(navController: NavHostController) {
         Screen.Search,
         Screen.Map,
         Screen.Favorites,
+        Screen.Analytics,
         Screen.Settings
     )
 
     val navBackStackEntry = navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry.value?.destination?.route
 
-    NavigationBar(
-        containerColor = Onyx
-    ) {
+    NavigationBar(containerColor = Onyx) {
         screens.forEach { screen ->
             NavigationBarItem(
                 selected = currentRoute == screen.route,
                 onClick = {
-                    navController.navigate(screen.route) {
-                        popUpTo(navController.graph.findStartDestination().id) {
+                    navController.navigate(screen.route){
+                        popUpTo(navController.graph.findStartDestination().id){
                             saveState = true
                         }
                         launchSingleTop = true
@@ -54,6 +54,7 @@ fun BottomNavBar(navController: NavHostController) {
                             Screen.Search -> Icons.Outlined.Search
                             Screen.Map -> Icons.Outlined.Map
                             Screen.Favorites -> Icons.Outlined.StarOutline
+                            Screen.Analytics -> Icons.Outlined.BarChart
                             Screen.Settings -> Icons.Outlined.Settings
                             else -> Icons.Outlined.Home
                         },

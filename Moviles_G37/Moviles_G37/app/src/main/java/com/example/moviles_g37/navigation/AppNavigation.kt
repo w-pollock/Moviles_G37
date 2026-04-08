@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.moviles_g37.ui.screens.AnalyticsDashboardScreen
 import com.example.moviles_g37.ui.screens.FavoritesScreen
 import com.example.moviles_g37.ui.screens.HomeScreen
 import com.example.moviles_g37.ui.screens.LocationDetailsScreen
@@ -48,6 +49,10 @@ fun AppNavigation(
 
         composable(Screen.Favorites.route) {
             FavoritesScreen()
+        }
+
+        composable(Screen.Analytics.route) {
+            AnalyticsDashboardScreen()
         }
 
         composable(Screen.LocationDetails.route) {
