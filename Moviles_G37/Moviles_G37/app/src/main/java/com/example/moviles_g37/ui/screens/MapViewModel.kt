@@ -5,6 +5,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviles_g37.analytics.AppAnalytics
+import com.example.moviles_g37.data.PlacesRepository
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.maps.model.LatLng
@@ -47,13 +48,15 @@ class MapViewModel(application: Application): AndroidViewModel(application){
     private val fusedLocationClient =
         LocationServices.getFusedLocationProviderClient(application)
 
+    private val placesRepository = PlacesRepository()
+
     private val _uiState = MutableStateFlow(MapUiState())
     val uiState: StateFlow<MapUiState> = _uiState.asStateFlow()
 
 
     init {
         AppAnalytics.track(event = "screen_view", params = mapOf("screen_name" to "map"))
-
+        loadPlaces()
     }
 
 
@@ -114,4 +117,12 @@ class MapViewModel(application: Application): AndroidViewModel(application){
             params = mapOf("destination"  to destination.title, "duration.ms" to duration)
         )
     }
+
+    private fun loadPlaces(){
+        viewModelScope.launch {
+            val places = placesRepository.getPlaces()
+            _uiState.update { it.copy(markers = places) }
+        }
+    }
+
 }

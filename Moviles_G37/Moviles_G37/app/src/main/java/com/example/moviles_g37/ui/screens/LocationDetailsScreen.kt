@@ -49,6 +49,8 @@ fun LocationDetailsScreen(
 ) {
 
     Column(
+
+
         modifier = Modifier
             .fillMaxSize()
             .background(Onyx)

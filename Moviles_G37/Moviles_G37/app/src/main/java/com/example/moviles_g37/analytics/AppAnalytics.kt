@@ -6,7 +6,7 @@ interface AnalyticsObserver {
 
 object AppAnalytics {
 
-    private val tracker: AnalyticsTracker = LogcatAnalyticsTracker()
+    private val tracker: AnalyticsTracker = FirebaseAnalyticsTracker()
     private val observers = mutableListOf<AnalyticsObserver>()
     private val _eventLog = mutableListOf<AnalyticsEvent>()
 
