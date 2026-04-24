@@ -12,7 +12,6 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.moviles_g37.navigation.Screen
@@ -39,8 +38,11 @@ fun BottomNavBar(navController: NavHostController) {
             NavigationBarItem(
                 selected = currentRoute == screen.route,
                 onClick = {
-                    navController.navigate(screen.route){
-                        popUpTo(navController.graph.findStartDestination().id){
+                    navController.navigate(screen.route) {
+                        // Usar Screen.Home.route como raíz fija del back stack
+                        // evita que findStartDestination() apunte a 'auth' y
+                        // restaure el estado incorrecto al presionar Home.
+                        popUpTo(Screen.Home.route) {
                             saveState = true
                         }
                         launchSingleTop = true
