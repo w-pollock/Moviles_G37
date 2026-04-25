@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "49936471002",
+    "project_id": "senecamaps-2bde8",
+    "storage_bucket": "senecamaps-2bde8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49936471002:android:4967b78ba4e4b2a8f6a6e3",
+        "android_client_info": {
+          "package_name": "com.example.moviles_g37"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ-GcvPtewWjL4Q9xCThf3zO5yFJAP25I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
